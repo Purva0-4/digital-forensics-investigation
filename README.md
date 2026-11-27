@@ -52,6 +52,83 @@ I presented the findings in an **MG11 witness statement**, the format used in UK
 - Disclosure duties under the Criminal Procedure and Investigations Act 1996
 - The expert's duty to the court, and the Forensic Science Regulator's Code of Conduct
 
+## Evidence of my work
+
+### Imaging and verification results
+
+| Step | Tool | Setting | Result |
+|---|---|---|---|
+| Check the source `.dd` image | HashMyFiles | MD5 and SHA1 | Both matched the official values |
+| Create a compressed E01 | FTK Imager | EWF format, compression level 9 | MD5 and SHA1 verification: **Match** |
+| Create a split E01 | FTK Imager | 100 MB fragments, compression 0 | 6 segments (`.E01` to `.E06`), all verified, no errors or bad blocks |
+| Verify with a second method | FTK Imager: Verify Image | Stored hashes inside the E01 | MD5 and SHA1: **Match** |
+| Check the image can be read | FTK Imager: Add Evidence Item | Mounted the compressed E01 | Partitions, folders and deleted files all readable |
+
+**Hashing the source images with HashMyFiles**
+
+![HashMyFiles MD5 and SHA1 hashes](images/01-hashmyfiles.png)
+
+**Creating the compressed E01 in FTK Imager (compression level 9)**
+
+![E01 creation settings](images/02-e01-settings.png)
+
+**Verification result: MD5 and SHA1 both "Match", no bad blocks**
+
+![E01 verification match](images/03-e01-verify.png)
+
+**Creating the split E01 (100 MB fragments, no compression) and the six segments it produced**
+
+![Split E01 settings](images/04-split-settings.png)
+![Split E01 segments](images/05-split-segments.png)
+
+**How a write blocker protects evidence**
+
+![Write blocker diagram](images/06-write-blocker-diagram.png)
+
+### Crime scene search
+
+**Safety assessment before the search**
+- No immediate hazards visible
+- No liquids on the desk
+- Electrical cables present but not exposed or damaged
+- All devices in their original state and powered off
+- No sharp or dangerous items
+- Access and exit routes clear
+
+**Exhibits seized and chain of custody**
+
+| Exhibit ref | Description | Location | Seized by |
+|---|---|---|---|
+| AB/01 | USB flash drive | Desk | PP |
+| AB/02 | Mobile phone | Desk | PP |
+| AB/03 | Laptop | Desk | PP |
+| AB/04 | PC | Desk | PP |
+| AB/05 | Notebook | Desk | PP |
+
+Each exhibit was photographed in situ, labelled, then bagged and sealed.
+
+**Scene diagram**
+
+![Scene diagram](images/07-scene-diagram.png)
+
+**Exhibit AB/01 labelled in situ, then bagged and sealed**
+
+![Exhibit labelled in situ](images/08-exhibit-labelled.png)
+![Bagged and sealed exhibit](images/09-bagged-sealed.png)
+
+### Witness statement structure
+
+My MG11 statement followed this structure:
+
+1. Qualifications and experience
+2. Background to the case and verification of the supplied image
+3. Questions set by the Crown Prosecution Service
+4. Summary of findings
+5. Detailed findings for each question, with file path, timestamps and the tool used
+6. Opinion on ownership of the device, with reasons
+7. Disclosure under the Criminal Procedure and Investigations Act 1996
+8. Duty to the court and the Forensic Science Regulator's Code of Conduct
+
 ## What I learned
 
 The biggest lesson was that in forensics, being able to prove the evidence hasn't changed matters as much as what you find. Hashing at every step, verifying with two methods and keeping a chain of custody are what make findings stand up in court. Writing a witness statement also taught me to report findings so they are clear, can be repeated and stay neutral.
